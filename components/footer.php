@@ -36,6 +36,6 @@
 
    </section>
 
-   <div class="credit">&copy; copyright @ <?= date('Y'); ?> by <span>mr. web designer</span> | all rights reserved!</div>
+   <div class="credit">Developed solely for the demonstration purposes by Group 2: SENG 21253 - Web Application Development Final Project @ <?= date('Y'); ?> </div>
 
 </footer>
