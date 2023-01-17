@@ -129,7 +129,7 @@ section{
 }
 
 .empty{
-   padding:1.5rem;
+   padding:1rem;
    background-color: var(--white);
    border: var(--border);
    box-shadow: var(--box-shadow);
@@ -233,7 +233,7 @@ section{
 }
 
 .home-bg{
-   background:url(../images/home-bg.png) no-repeat;
+   background:url(../images/backg.jpg) no-repeat;
    background-size: cover;
    background-position: center;
 }
@@ -264,13 +264,14 @@ section{
 
 .home-bg .home .slide .content span{
    font-size: 2rem;
-   color:var(--white);
+   color:rgb(85, 84, 78);
+   
 }
 
 .home-bg .home .slide .content h3{
    margin-top: 1rem;
    font-size: 4rem;
-   color:var(--white);
+   color: #333;
    text-transform: uppercase;
 }
 
@@ -279,11 +280,80 @@ section{
    width: auto;
 }
 
+.swiper{
+   width: 80%;
+   height: fit-content;
+}
+
+.swiper-slide img {
+   width: 100%;
+}
+
 .swiper-pagination-bullet-active{
    background-color: var(--main-color);
 }
 
-.category .slide{
+.category .box_container {
+   border: 0px solid;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+   gap: 1.5rem;
+}
+.category .box_container .box {
+   padding: 3rem 0;
+   background: #fff;
+   border-radius: 0.5rem;
+   box-shadow: var(--box-shadow);
+   outline-offset: -1rem;
+   text-align: center;
+
+
+}
+.category .box_container .box:hover {
+  box-shadow: 1px 1px 10px 4px var(--black);
+
+}
+
+.category .box_container .box img {
+   margin: 1rem 0;
+   height: 15rem;
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  
+
+}
+.category .box_container .box h3 {
+   font-size: 2rem;
+   color: var(--black);
+   line-height: 40px;
+  
+
+}
+.category .box_container .box .btnn {
+      background-color: #fff;
+      border: 2px solid rgb(96, 96, 199);
+      color: rgb(0, 0, 0);
+      padding: 10px 45px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: auto;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border-radius: 15px;
+      transition-duration: 0.4s;
+}
+.category .box_container .box .btnn:hover {
+   background-color: rgb(96, 96, 199);
+   color: white;
+}
+
+
+
+/*.category .slide{
    margin-bottom: 5rem;
    box-shadow: var(--box-shadow);
    border:var(--border);
@@ -317,7 +387,7 @@ section{
    font-size: 2rem;
    color:var(--black);
    user-select: none;
-}
+} */
 
 .home-products .slide{
    position: relative;
@@ -1059,3 +1129,4 @@ section{
    }
 
 }
+
