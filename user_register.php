@@ -13,13 +13,13 @@ if(isset($_SESSION['user_id'])){
 if(isset($_POST['submit'])){
 
    $name = $_POST['name'];
-   $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $name = filter_var($name);
    $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
+   $email = filter_var($email);
    $pass = sha1($_POST['pass']);
-   $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+   $pass = filter_var($pass);
    $cpass = sha1($_POST['cpass']);
-   $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
+   $cpass = filter_var($cpass);
 
    $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
    $select_user->execute([$email,]);
@@ -28,13 +28,25 @@ if(isset($_POST['submit'])){
    if($select_user->rowCount() > 0){
       $message[] = 'email already exists!';
    }else{
-      if($pass != $cpass){
-         $message[] = 'confirm password not matched!';
-      }else{
-         $insert_user = $conn->prepare("INSERT INTO `users`(name, email, password) VALUES(?,?,?)");
-         $insert_user->execute([$name, $email, $cpass]);
-         $message[] = 'registered successfully, login now please!';
+
+      $uppercase = preg_match('@[A-Z]@', $pass);
+      $lowercase = preg_match('@[a-z]@', $pass);
+      $number    = preg_match('@[0-9]@', $pass);
+      $specialChars = preg_match('@[^\w]@', $pass);
+
+      if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($pass) < 8) {
+         $message[] = 'Password must contain at least one uppercase, one lower case, one special character, and one numeric';
       }
+
+      else{
+         if($pass != $cpass){
+            $message[] = 'Enter the same password you have entered in conform password';
+         }else{
+            $insert_user = $conn->prepare("INSERT INTO `users`(name, email, password) VALUES(?,?,?)");
+            $insert_user->execute([$name, $email, $cpass]);
+            $message[] = 'registered successfully, login now please!';
+         }
+      }   
    }
 
 }
