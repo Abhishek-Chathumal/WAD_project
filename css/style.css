@@ -10,6 +10,7 @@
    --light-bg:#eee;
    --border:.2rem solid var(--black);
    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+   --header:#046380;
 }
 
 *{
@@ -155,7 +156,7 @@ section{
 .header{
    position: sticky;
    top:0; left:0; right:0;
-   background-color: var(--white);
+   background-color: var(--header);
    box-shadow: var(--box-shadow);
    z-index: 1000;
 }
