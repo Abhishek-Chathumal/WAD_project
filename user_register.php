@@ -13,13 +13,13 @@ if(isset($_SESSION['user_id'])){
 if(isset($_POST['submit'])){
 
    $name = $_POST['name'];
-   $name = filter_var($name);
+   $name = filter_var($name, FILTER_SANITIZE_STRING);
    $email = $_POST['email'];
-   $email = filter_var($email);
+   $email = filter_var($email, FILTER_SANITIZE_STRING);
    $pass = sha1($_POST['pass']);
-   $pass = filter_var($pass);
+   $pass = filter_var($pass, FILTER_SANITIZE_STRING);
    $cpass = sha1($_POST['cpass']);
-   $cpass = filter_var($cpass);
+   $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
 
    $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
    $select_user->execute([$email,]);
@@ -28,25 +28,14 @@ if(isset($_POST['submit'])){
    if($select_user->rowCount() > 0){
       $message[] = 'email already exists!';
    }else{
-
-      $uppercase = preg_match('@[A-Z]@', $pass);
-      $lowercase = preg_match('@[a-z]@', $pass);
-      $number    = preg_match('@[0-9]@', $pass);
-      $specialChars = preg_match('@[^\w]@', $pass);
-
-      if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($pass) < 8) {
-         $message[] = 'Password must contain at least one uppercase, one lower case, one special character, and one numeric';
+      
+      if($pass != $cpass){
+         $message[] = 'confirm password not matched!';
+      }else{
+         $insert_user = $conn->prepare("INSERT INTO `users`(name, email, password) VALUES(?,?,?)");
+         $insert_user->execute([$name, $email, $cpass]);
+         $message[] = 'registered successfully, login now please!';
       }
-
-      else{
-         if($pass != $cpass){
-            $message[] = 'Enter the same password you have entered in conform password';
-         }else{
-            $insert_user = $conn->prepare("INSERT INTO `users`(name, email, password) VALUES(?,?,?)");
-            $insert_user->execute([$name, $email, $cpass]);
-            $message[] = 'registered successfully, login now please!';
-         }
-      }   
    }
 
 }
@@ -65,22 +54,37 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
    
 <?php include 'components/user_header.php'; ?>
 
+
+
 <section class="form-container">
 
-   <form action="" method="post">
+   <form id="form" action="" method="post">
       <h3>register now</h3>
-      <input type="text" name="name" required placeholder="enter your username" maxlength="20"  class="box">
-      <input type="email" name="email" required placeholder="enter your email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="pass" required placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="cpass" required placeholder="confirm your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" value="register now" class="btn" name="submit">
+      <div class="form-control error">
+         <input id="uname" type="text" name="name"  placeholder="enter your username" maxlength="20"  class="box">
+         <small>Error message</small>
+      </div>
+      <div class="form-control error">
+         <input id="email" type="email" name="email"  placeholder="enter your email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+         <small>Error message</small>
+      </div>
+      <div class="form-control error">
+         <input id="pass" type="password" name="pass"  placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+         <small>Error message</small>
+      </div>
+      <div class="form-control error">
+         <input id="cpass" type="password" name="cpass"  placeholder="confirm your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+         <small>Error message</small>
+      </div>
+      
+      <input id="submit" type="submit" value="register now" class="btn" name="submit" onclick="checkInputs()">
       <p>already have an account?</p>
       <a href="user_login.php" class="option-btn">login now</a>
    </form>

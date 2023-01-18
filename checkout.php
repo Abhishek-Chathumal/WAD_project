@@ -58,7 +58,7 @@ if(isset($_POST['order'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -83,7 +83,7 @@ if(isset($_POST['order'])){
                $total_products = implode($cart_items);
                $grand_total += ($fetch_cart['price'] * $fetch_cart['quantity']);
       ?>
-         <p> <?= $fetch_cart['name']; ?> <span>(<?= '$'.$fetch_cart['price'].'/- x '. $fetch_cart['quantity']; ?>)</span> </p>
+         <p> <?= $fetch_cart['name']; ?> <span>(<?= 'Rs.'.$fetch_cart['price'].' x '. $fetch_cart['quantity']; ?>)</span> </p>
       <?php
             }
          }else{
@@ -92,7 +92,7 @@ if(isset($_POST['order'])){
       ?>
          <input type="hidden" name="total_products" value="<?= $total_products; ?>">
          <input type="hidden" name="total_price" value="<?= $grand_total; ?>" value="">
-         <div class="grand-total">grand total : <span>$<?= $grand_total; ?>/-</span></div>
+         <div class="grand-total">grand total : <span>Rs.<?= $grand_total; ?></span></div>
       </div>
 
       <h3>place your orders</h3>
@@ -129,15 +129,15 @@ if(isset($_POST['order'])){
          </div>
          <div class="inputBox">
             <span>city :</span>
-            <input type="text" name="city" placeholder="e.g. mumbai" class="box" maxlength="50" required>
+            <input type="text" name="city" placeholder="e.g. Amsterdam" class="box" maxlength="50" required>
          </div>
          <div class="inputBox">
             <span>state :</span>
-            <input type="text" name="state" placeholder="e.g. maharashtra" class="box" maxlength="50" required>
+            <input type="text" name="state" placeholder="e.g. New-York" class="box" maxlength="50" required>
          </div>
          <div class="inputBox">
             <span>country :</span>
-            <input type="text" name="country" placeholder="e.g. India" class="box" maxlength="50" required>
+            <input type="text" name="country" placeholder="e.g. United States" class="box" maxlength="50" required>
          </div>
          <div class="inputBox">
             <span>pin code :</span>
@@ -145,7 +145,7 @@ if(isset($_POST['order'])){
          </div>
       </div>
 
-      <input type="submit" name="order" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>" value="place order">
+      <input type="submit" name="order" class="option-btn <?= ($grand_total > 1)?'':'disabled'; ?>" value="place order">
 
    </form>
 

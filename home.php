@@ -28,12 +28,13 @@ include 'components/wishlist_cart.php';
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
    
 <?php include 'components/user_header.php'; ?>
+
 
 <div class="home-bg">
 
@@ -45,40 +46,41 @@ include 'components/wishlist_cart.php';
 
       <div class="swiper-slide slide">
          <div class="image">
-            <img src="images/home-img-1.png" alt="">
+            <img src="images/home-img-01.jpg" alt="">
          </div>
          <div class="content">
-            <span>upto 50% off</span>
-            <h3>latest smartphones</h3>
-            <a href="shop.php" class="btn">shop now</a>
+            <span>Special offers On</span>
+            <h3>Selected Screen Protectors</h3>
+            <a href="shop.php" class="btn">Shop Now</a>
          </div>
       </div>
 
       <div class="swiper-slide slide">
          <div class="image">
-            <img src="images/home-img-2.png" alt="">
+            <img src="images/home-img-02.jpg" alt="">
          </div>
          <div class="content">
-            <span>upto 50% off</span>
-            <h3>latest watches</h3>
-            <a href="shop.php" class="btn">shop now</a>
+            <span>Check out Our New</span>
+            <h3>Power Bank Collection</h3>
+            <a href="shop.php" class="btn">Shop Now</a>
          </div>
       </div>
 
       <div class="swiper-slide slide">
          <div class="image">
-            <img src="images/home-img-3.png" alt="">
+            <img src="images/home-img-3.jpg" alt="">
          </div>
          <div class="content">
-            <span>upto 50% off</span>
-            <h3>latest headsets</h3>
-            <a href="shop.php" class="btn">shop now</a>
+            <span>upto 50% off on</span>
+            <h3>Latest Backcovers</h3>
+            <a href="shop.php" class="btn">Shop Now</a>
          </div>
       </div>
 
    </div>
 
       <div class="swiper-pagination"></div>
+      
 
    </div>
 
@@ -92,51 +94,79 @@ include 'components/wishlist_cart.php';
 
    <div class="swiper category-slider">
 
-   <div class="swiper-wrapper">
+      <div class="swiper-wrapper">
 
-   <a href="category.php?category=laptop" class="swiper-slide slide">
-      <img src="images/icon-1.png" alt="">
-      <h3>laptop</h3>
-   </a>
+         <a href="category.php?category=Back Cover" class="swiper-slide slide">
+            
+            <h3>Back Covers</h3>
+         </a>
 
-   <a href="category.php?category=tv" class="swiper-slide slide">
-      <img src="images/icon-2.png" alt="">
-      <h3>tv</h3>
-   </a>
+         <a href="category.php?category=Headset" class="swiper-slide slide">
+            
+            <h3>Headsets</h3>
+         </a>
 
-   <a href="category.php?category=camera" class="swiper-slide slide">
-      <img src="images/icon-3.png" alt="">
-      <h3>camera</h3>
-   </a>
+         <a href="category.php?category=Power Bank" class="swiper-slide slide">
+            
+            <h3>Power Bank</h3>
+         </a>
 
-   <a href="category.php?category=mouse" class="swiper-slide slide">
-      <img src="images/icon-4.png" alt="">
-      <h3>mouse</h3>
-   </a>
+         <a href="category.php?category=Cable" class="swiper-slide slide">
+            
+            <h3>Cable</h3>
+         </a>
 
-   <a href="category.php?category=fridge" class="swiper-slide slide">
-      <img src="images/icon-5.png" alt="">
-      <h3>fridge</h3>
-   </a>
+         <a href="category.php?category=Charger" class="swiper-slide slide">
+                        
+            <h3>Charger</h3>
+         </a>
 
-   <a href="category.php?category=washing" class="swiper-slide slide">
-      <img src="images/icon-6.png" alt="">
-      <h3>washing machine</h3>
-   </a>
+         <a href="category.php?category=Phone Holder" class="swiper-slide slide">
+            
+            <h3>Phone Holder</h3>
+         </a>
+         <a href="category.php?category=Tempered Glass" class="swiper-slide slide">
+            
+            <h3>Tempered Glass Screen Protectors</h3>
+         </a>
 
-   <a href="category.php?category=smartphone" class="swiper-slide slide">
-      <img src="images/icon-7.png" alt="">
-      <h3>smartphone</h3>
-   </a>
+         <a href="category.php?category=Smartwatch" class="swiper-slide slide">
+            
+            <h3>Smartwatch</h3>
+         </a>
 
-   <a href="category.php?category=watch" class="swiper-slide slide">
-      <img src="images/icon-8.png" alt="">
-      <h3>watch</h3>
-   </a>
+      </div>
+
+      <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+         <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1" aria-current="true"></span>
+         <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span>
+         <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span>
+         <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span>
+         <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span>
+         <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6"></span>
+         <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7"></span>
+         <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 8"></span>
+      </div>
 
    </div>
+   
 
-   <div class="swiper-pagination"></div>
+</section>
+<section class="brands">
+
+   <h1 class="heading">brands</h1>
+
+   <div class="swiper category-slider">
+
+   <div class="swiper-wrapper">
+      <img src="images/logos/brand_6.png" alt="" class="swiper-slide slide">
+      <img src="images/logos/brand_5.png" alt="" class="swiper-slide slide">
+      <img src="images/logos/brand_1.png" alt="" class="swiper-slide slide">
+      <img src="images/logos/brand_2.png" alt="" class="swiper-slide slide">
+      <img src="images/logos/brand_3.png" alt="" class="swiper-slide slide">
+      <img src="images/logos/brand_4.png" alt="" class="swiper-slide slide">
+      
+ </div>
 
    </div>
 
@@ -166,7 +196,7 @@ include 'components/wishlist_cart.php';
       <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
       <div class="name"><?= $fetch_product['name']; ?></div>
       <div class="flex">
-         <div class="price"><span>$</span><?= $fetch_product['price']; ?><span>/-</span></div>
+         <div class="price"><span>Rs.</span><?= $fetch_product['price']; ?><span></span></div>
          <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
       </div>
       <input type="submit" value="add to cart" class="btn" name="add_to_cart">
@@ -201,13 +231,26 @@ include 'components/wishlist_cart.php';
 <script src="js/script.js"></script>
 
 <script>
+   
+   
 
 var swiper = new Swiper(".home-slider", {
    loop:true,
    spaceBetween: 20,
+   centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
    pagination: {
       el: ".swiper-pagination",
       clickable:true,
+
+      navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
     },
 });
 

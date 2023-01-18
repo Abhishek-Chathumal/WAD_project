@@ -18,10 +18,10 @@
       <a href="home.php" class="logo"><img height="80px" width="auto" src="images/logo.png"/> <span></span></a>
 
       <nav class="navbar">
-         <a href="home.php">home</a>
+         <a href="home.php">Home</a>
          <a href="about.php">about</a>
-         <a href="orders.php">orders</a>
          <a href="shop.php">shop</a>
+         <a href="orders.php">orders</a>
          <a href="contact.php">contact</a>
       </nav>
 

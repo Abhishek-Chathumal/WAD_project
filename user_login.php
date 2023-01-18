@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -52,15 +52,30 @@ if(isset($_POST['submit'])){
 <?php include 'components/user_header.php'; ?>
 
 <section class="form-container">
+<form id="form" action="" method="post">
+      <h3>register now</h3>
+      <div class="form-control error">
+         <input type="email" name="email"  placeholder="enter your email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+         <small>Error message</small>
+      </div>
+      <div class="form-control error">
+         <input type="password" name="pass"  placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+         <small>Error message</small>
+      </div>
+      
+      
+      <input id="submit" type="submit" value="login now" class="btn" name="submit" onclick="checkInputs()">
+      <p>don't have an account?</p>
+      <a href="user_register.php" class="option-btn">register now</a>
+   </form>
 
-   <form action="" method="post">
+   <!--form action="" method="post">
       <h3>login now</h3>
       <input type="email" name="email" required placeholder="enter your email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="pass" required placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="login now" class="btn" name="submit">
-      <p>don't have an account?</p>
-      <a href="user_register.php" class="option-btn">register now</a>
-   </form>
+      
+   </form-->
 
 </section>
 
