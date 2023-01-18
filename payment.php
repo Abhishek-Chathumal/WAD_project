@@ -1,3 +1,16 @@
+<?php
+    include 'components/connect.php';
+
+    session_start();
+    
+    if(isset($_SESSION['user_id'])){
+       $user_id = $_SESSION['user_id'];
+    }else{
+       $user_id = '';
+       header('location:user_login.php');
+    };
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,40 +25,6 @@
     <form action="">
 
         <div class="row">
-
-            <!--div class="col">
-
-                <h3 class="title">billing address</h3>
-
-                <div class="inputBox">
-                    <span>full name :</span>
-                    <input type="text">
-                </div>
-                <div class="inputBox">
-                    <span>email :</span>
-                    <input type="email">
-                </div>
-                <div class="inputBox">
-                    <span>address :</span>
-                    <input type="text">
-                </div>
-                <div class="inputBox">
-                    <span>city :</span>
-                    <input type="text">
-                </div>
-
-                <div class="flex">
-                    <div class="inputBox">
-                        <span>state :</span>
-                        <input type="text">
-                    </div>
-                    <div class="inputBox">
-                        <span>zip code :</span>
-                        <input type="text">
-                    </div>
-                </div>
-
-            </div-->
 
             <div class="col">
 
